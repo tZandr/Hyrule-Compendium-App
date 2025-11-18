@@ -30,17 +30,15 @@ async function getAll() {
       container.appendChild(idOverlay);
       list.appendChild(container);
 
-          // Add zeroes behind the ID so that it's always 3 in length
-    if ((Number(idOverlay.textContent)) <= 10) {
-      idOverlay.textContent = `00` + idOverlay.textContent;
-    } else if ((Number(idOverlay.textContent)) <= 100) {
-      idOverlay.textContent = `0` + idOverlay.textContent;
-    } else {
-      idOverlay = idOverlay
-    }
+      // Add zeroes behind the ID so that it's always 3 in length
+      if (Number(idOverlay.textContent) <= 10) {
+        idOverlay.textContent = `00` + idOverlay.textContent;
+      } else if (Number(idOverlay.textContent) <= 100) {
+        idOverlay.textContent = `0` + idOverlay.textContent;
+      } else {
+        idOverlay = idOverlay;
+      }
     });
-
-
 
     // Gets specific entry: console.log(data.data[1])
   } catch (error) {
