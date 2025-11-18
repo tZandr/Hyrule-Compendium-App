@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>BOTW & TOTK API</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="home" class="page">
+        <h1>The Hyrule Compendium</h1>
+        <form>
+          <input id="search" type="text" />
+          <input id="submit" type="submit" value="/img" />
+        </form>
+      </div>
+      <div id="compendium" class="page">
+        <ol id="list"></ol>
+      </div>
+
+      <!--
+      Idea is to make a website where you can pick your game and search for the ID in the Hyrule Compendium. The response will contain info about the ID and it's whereabouts.
+      pages with consist of 24s just like in the game
+      header will be sticky with the search function always present
+      delete and post will be available instead as notes
+      ui is planned to be close to or identical with the game.
+      -->
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
