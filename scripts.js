@@ -11,34 +11,36 @@ async function getAll() {
     let data = await response.json();
     console.log(data);
 
-    // Create container for each entry
-    let container = document.createElement("div");
-    container.classList.add("entry");
+    data.data.slice(0, data.length).forEach((entry) => {
+      // Create container for each entry
+      let container = document.createElement("div");
+      container.classList.add("entry");
 
-    // Convert URL into variable + create img-element
-    let imageURL = data.data[0].image;
-    let img = document.createElement("img");
-    img.src = imageURL;
-    img.alt = data.data[0].name;
+      let img = document.createElement("img");
+      img.src = entry.image;
+      img.alt = entry.name;
 
-    // Add ID to image
-    let idOverlay = document.createElement("span");
-    idOverlay.classList.add("overlay");
-    idOverlay.textContent = `${data.data[0].id}`;
+      // Add ID to image
+      let idOverlay = document.createElement("span");
+      idOverlay.classList.add("overlay");
+      idOverlay.textContent = `${entry.id}`;
 
-    // Add to list
-    list.innerHTML = "";
-    list.appendChild(container);
-    container.appendChild(img);
-    container.appendChild(idOverlay);
-    img.classList.add("entry");
+      // Add to list
+      container.appendChild(img);
+      container.appendChild(idOverlay);
+      list.appendChild(container);
 
-    // Add zeroes behind the ID so that it's always 3 in length
-    if ((idOverlay.textContent.length = 1)) {
+          // Add zeroes behind the ID so that it's always 3 in length
+    if ((Number(idOverlay.textContent)) <= 10) {
       idOverlay.textContent = `00` + idOverlay.textContent;
-    } else if ((idOverlay.textContent.length = 2)) {
+    } else if ((Number(idOverlay.textContent)) <= 100) {
       idOverlay.textContent = `0` + idOverlay.textContent;
+    } else {
+      idOverlay = idOverlay
     }
+    });
+
+
 
     // Gets specific entry: console.log(data.data[1])
   } catch (error) {
