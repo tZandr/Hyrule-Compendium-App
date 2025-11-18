@@ -1,3 +1,9 @@
+Final assignment of the Native Javascript course.
+
+Going a little overboard as i'm trying to replicate the Hyrule Compendium from The Legend of Zelda: Breath of The Wild.
+
+The (swedish)instructions are as follows:
+
 Mål:
 
 Uppgiften går ut på att använda JavaScript, HTML och CSS för att skapa en dynamisk RESPONSIV webbplats som hämtar och visar information från en webbtjänst via API-anrop.
