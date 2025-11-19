@@ -11,8 +11,15 @@ async function getAll() {
     let data = await response.json();
     console.log(data);
 
-    data.data.slice(0, data.length).forEach((entry) => {
-      // Create container for each entry
+    // Sorting the list
+    // Interesting error: 1-12 started loading really
+    // slow after some time, which forced me to make this code.
+    // Still don't know why. But now it's fail-safe.
+    list.innerHTML = ''
+    const entries = [...data.data].sort((a,b) => a.id - b.id)
+
+    // Create container for each entry
+    entries.forEach((entry) => {
       let container = document.createElement("div");
       container.classList.add("entry");
 
@@ -31,13 +38,7 @@ async function getAll() {
       list.appendChild(container);
 
       // Add zeroes behind the ID so that it's always 3 in length
-      if (Number(idOverlay.textContent) <= 10) {
-        idOverlay.textContent = `00` + idOverlay.textContent;
-      } else if (Number(idOverlay.textContent) <= 100) {
-        idOverlay.textContent = `0` + idOverlay.textContent;
-      } else {
-        idOverlay = idOverlay;
-      }
+      idOverlay.textContent = String(entry.id).padStart(3, "0");
     });
 
     // Gets specific entry: console.log(data.data[1])

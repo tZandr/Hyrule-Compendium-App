@@ -18,14 +18,15 @@ h5,
 h6 {
   font-family: botw-title-font;
   color: rgb(194, 153, 77);
-  text-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2)
+  text-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
   font-size: 60px;
 }
-
-p {
+p,
+li,
+span {
   color: white;
 }
 
@@ -38,7 +39,6 @@ p {
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  padding: 10px;
   overflow-x: scroll;
   scroll-snap-type: y mandatory;
 }
@@ -47,14 +47,34 @@ p {
   flex: 0 0 100%;
   scroll-snap-align: start;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: 100px;
+  flex-direction: column;
 }
 
 #home {
   justify-content: center;
   flex-direction: column;
+  align-items: center;
+}
+
+#nav {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 15px 0px;
+}
+
+#sort {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
 }
 
 #list {
@@ -64,6 +84,8 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  margin: 100px;
 }
 
 input {
