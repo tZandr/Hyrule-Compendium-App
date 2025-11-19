@@ -1,6 +1,7 @@
 let searchInput = document.querySelector("#search");
 let submit = document.querySelector("#submit");
 let list = document.querySelector("#list");
+let searchIcon = document.querySelector("#searchIcon")
 
 // GET all entries
 async function getAll() {
@@ -41,7 +42,7 @@ async function getAll() {
       idOverlay.textContent = String(entry.id).padStart(3, "0");
     });
 
-    // Gets specific entry: console.log(data.data[1])
+      // Gets specific entry: console.log(data.data[1])
   } catch (error) {
     console.error("Error: ", error);
   }

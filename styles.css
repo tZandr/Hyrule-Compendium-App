@@ -31,10 +31,8 @@ span {
 }
 
 #app {
-  /* Squoosh and darken later */
-  background-image: url("/img/sheikah-side.webp");
-  background-size: cover;
-  background-position: top 1500px right 10px;
+  background-image: url("/img/mapbg.jpg");
+
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -59,13 +57,18 @@ span {
 
 #nav {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* Probably change bg */
+  background-image: url("/img/sheikahslatebg.jpg");
+  background-size: cover;
+  background-position: top -25px right 0px;
+  box-shadow: 0 1px 3px 1px #6bcbff;
+  /**/
   display: flex;
   justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 15px 0px;
+  padding: 30px 30px;
 }
 
 #sort {
@@ -77,6 +80,29 @@ span {
   list-style: none;
 }
 
+.sortIcon {
+    filter: drop-shadow(0px 0px 1px #7cd1ff);
+  max-width: 30px;
+  margin: 0 7px;
+  transition: 1s;
+}
+
+#searchIcon, #notesIcon {
+  margin: 0px 100px;
+  max-width: 35px;
+  transition: 1s;
+}
+
+#searchIcon {
+  max-height: 40px;
+  align-self: center;
+}
+
+#notesIcon:hover, #searchIcon:hover, .sortIcon:hover {
+  filter: drop-shadow(0px 0px 3px #7cd1ff);
+  transition: 0.15s;
+}
+
 #list {
   margin: 0;
   padding: 0;
@@ -85,7 +111,7 @@ span {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 100px;
+  margin: 20px 100px;
 }
 
 input {
@@ -120,7 +146,7 @@ input {
 
 .entry:hover {
   box-shadow: 0 0 15px 5px #7cd1ff;
-  transition: 0.1s;
+  transition: 0.15s;
 }
 
 .entry img {
