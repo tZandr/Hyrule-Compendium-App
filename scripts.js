@@ -4,7 +4,7 @@ let list = document.querySelector("#list");
 const searchIcon = document.querySelector("#searchIcon");
 const inputField = document.querySelector("#inputField");
 
-let entries = []
+let allEntries = [];
 
 // GET all entries
 async function getAll() {
@@ -16,10 +16,9 @@ async function getAll() {
     console.log(data);
 
     // Render and sort the list
-    list.innerHTML = "";
-    entries = [...data.data].sort((a, b) => a.id - b.id);
+    allEntries = [...data.data].sort((a, b) => a.id - b.id);
 
-    render(entries)
+    render(allEntries);
 
     // Gets specific entry: console.log(data.data[1])
   } catch (error) {
@@ -27,42 +26,53 @@ async function getAll() {
   }
 }
 
-function render(entries) {
-      // Create container for each entry
-    entries.forEach((entry) => {
-      let container = document.createElement("div");
-      container.classList.add("entry");
+function render(allEntries) {
+  // Create container for each entry
+  list.innerHTML = "";
+  allEntries.forEach((entry) => {
+    let container = document.createElement("div");
+    container.classList.add("entry");
 
-      let img = document.createElement("img");
-      img.src = entry.image;
-      img.alt = entry.name;
+    let img = document.createElement("img");
+    img.src = entry.image;
+    img.alt = entry.name;
 
-      // Add ID to image + zeroes to match in-game ID.
-      let idOverlay = document.createElement("span");
-      idOverlay.classList.add("overlay");
-      idOverlay.textContent = String(entry.id).padStart(3, "0");
+    // Add ID to image + zeroes to match in-game ID.
+    let idOverlay = document.createElement("span");
+    idOverlay.classList.add("overlay");
+    idOverlay.textContent = String(entry.id).padStart(3, "0");
 
-      // Add to list
-      container.appendChild(img);
-      container.appendChild(idOverlay);
-      list.appendChild(container);
-    });
+    // Add to list
+    container.appendChild(img);
+    container.appendChild(idOverlay);
+    list.appendChild(container);
+  });
 }
 
 getAll();
 
-// Search
-entries = document.querySelector(".entry");
-
+// Show input field when clicking the icon
 searchIcon.addEventListener("click", () => {
   searchIcon.style.display = "none";
   inputField.style.display = "block";
+  inputField.focus()
 });
 
 inputField.addEventListener("input", (e) => {
-  console.log(String(e));
+  console.log(String(e.value));
+  const search = e.target.value.toLowerCase();
+  const filtered = allEntries.filter(entry => {
+    //Names
+    const filterByName = entry.name.toLowerCase().includes(search)
+
+    //ID
+    const filterByID = String(entry.id).padStart(3, "0").includes(search)
+    return filterByName || filterByID
+    });
+  render(filtered);
 });
 
+/* IF homepage field is required(search specific entry)
 // Search function
 async function getItem() {
   let search = searchInput.value.toLowerCase();
@@ -78,7 +88,7 @@ async function getItem() {
   }
 }
 
-/* IF homepage field is required(search specific entry)
+
 submit.addEventListener("click", (e) => {
   e.preventDefault();
   getItem();
