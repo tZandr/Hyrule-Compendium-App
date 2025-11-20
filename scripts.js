@@ -1,7 +1,10 @@
 let searchInput = document.querySelector("#search");
 let submit = document.querySelector("#submit");
 let list = document.querySelector("#list");
-let searchIcon = document.querySelector("#searchIcon")
+const searchIcon = document.querySelector("#searchIcon");
+const inputField = document.querySelector("#inputField");
+
+let entries = []
 
 // GET all entries
 async function getAll() {
@@ -12,14 +15,20 @@ async function getAll() {
     let data = await response.json();
     console.log(data);
 
-    // Sorting the list
-    // Interesting error: 1-12 started loading really
-    // slow after some time, which forced me to make this code.
-    // Still don't know why. But now it's fail-safe.
-    list.innerHTML = ''
-    const entries = [...data.data].sort((a,b) => a.id - b.id)
+    // Render and sort the list
+    list.innerHTML = "";
+    entries = [...data.data].sort((a, b) => a.id - b.id);
 
-    // Create container for each entry
+    render(entries)
+
+    // Gets specific entry: console.log(data.data[1])
+  } catch (error) {
+    console.error("Error: ", error);
+  }
+}
+
+function render(entries) {
+      // Create container for each entry
     entries.forEach((entry) => {
       let container = document.createElement("div");
       container.classList.add("entry");
@@ -28,27 +37,31 @@ async function getAll() {
       img.src = entry.image;
       img.alt = entry.name;
 
-      // Add ID to image
+      // Add ID to image + zeroes to match in-game ID.
       let idOverlay = document.createElement("span");
       idOverlay.classList.add("overlay");
-      idOverlay.textContent = `${entry.id}`;
+      idOverlay.textContent = String(entry.id).padStart(3, "0");
 
       // Add to list
       container.appendChild(img);
       container.appendChild(idOverlay);
       list.appendChild(container);
-
-      // Add zeroes behind the ID so that it's always 3 in length
-      idOverlay.textContent = String(entry.id).padStart(3, "0");
     });
-
-      // Gets specific entry: console.log(data.data[1])
-  } catch (error) {
-    console.error("Error: ", error);
-  }
 }
 
 getAll();
+
+// Search
+entries = document.querySelector(".entry");
+
+searchIcon.addEventListener("click", () => {
+  searchIcon.style.display = "none";
+  inputField.style.display = "block";
+});
+
+inputField.addEventListener("input", (e) => {
+  console.log(String(e));
+});
 
 // Search function
 async function getItem() {
@@ -65,7 +78,9 @@ async function getItem() {
   }
 }
 
+/* IF homepage field is required(search specific entry)
 submit.addEventListener("click", (e) => {
   e.preventDefault();
   getItem();
 });
+*/

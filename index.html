@@ -10,10 +10,12 @@
     <div id="app">
       <div id="home" class="page">
         <h1>The Hyrule Compendium</h1>
+        <!-- IF homepage field is required(search a specific entry)
         <form>
           <input id="search" type="text" />
           <input id="submit" type="submit" value="Search" />
         </form>
+        -->
       </div>
       <div id="compendium" class="page">
         <div id="nav">
@@ -26,6 +28,7 @@
             <img class="sortIcon" src="img/treasure.png">
           </ol>
           <img src="img/search.png" id="searchIcon" alt="searchIcon">
+          <input id="inputField" type="text" placeholder="Filter entries..." style="display:none;">
         </div>
         <ol id="list"></ol>
         <!--
