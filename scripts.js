@@ -1,15 +1,15 @@
 const searchInput = document.querySelector("#search");
 const submit = document.querySelector("#submit");
 const list = document.querySelector("#list");
-const app = document.querySelector("#app")
+const app = document.querySelector("#app");
 const searchButton = document.querySelector("#searchIcon");
 const inputField = document.querySelector("#inputField");
 const notesButton = document.querySelector("#notesIcon");
-const generalNotes = document.querySelector('#gNotes')
-const closeButton = document.querySelector('#closeNotes')
-const notesText = document.querySelector('#gNotesText')
-const saveNote = document.querySelector('#saveNote')
-const clearNote = document.querySelector('#clearNote')
+const generalNotes = document.querySelector("#gNotes");
+const closeButton = document.querySelector("#closeNotes");
+const notesText = document.querySelector("#gNotesText");
+const saveNote = document.querySelector("#saveNote");
+const clearNote = document.querySelector("#clearNote");
 
 let allEntries = [];
 
@@ -62,19 +62,19 @@ getAll();
 searchButton.addEventListener("click", () => {
   searchButton.style.display = "none";
   inputField.style.display = "block";
-  inputField.focus()
+  inputField.focus();
 });
 
 // Live filters every change in the input field
 inputField.addEventListener("input", (e) => {
   const search = e.target.value.toLowerCase();
-  const filtered = allEntries.filter(entry => {
+  const filtered = allEntries.filter((entry) => {
     //Filtering by name
-    const filterByName = entry.name.toLowerCase().includes(search)
+    const filterByName = entry.name.toLowerCase().includes(search);
     //Filtering by ID
-    const filterByID = String(entry.id).padStart(3, "0").includes(search)
-    return filterByName || filterByID
-    });
+    const filterByID = String(entry.id).padStart(3, "0").includes(search);
+    return filterByName || filterByID;
+  });
   render(filtered);
 });
 
@@ -82,17 +82,27 @@ inputField.addEventListener("input", (e) => {
 notesButton.addEventListener("click", () => {
   generalNotes.classList.toggle("active");
 });
-    // Close button
+// Close button
 closeButton.addEventListener("click", () => {
   generalNotes.classList.toggle("active");
 });
 
-saveNote.addEventListener('click', (e) => {
-  e.preventDefault()
-  console.log(notesText.value) //sanityCheck(i need a break(continue here))
-})
+// POST-request for notes when clicking "Save"
+saveNote.addEventListener("click", (e) => {
+  e.preventDefault();
 
-
+  fetch("https://dummyjson.com/posts/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      title: "User Notes",
+      body: notesText.value,
+      userId: 1,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+});
 
 /* IF homepage field is required(search specific entry)
 // Search function
