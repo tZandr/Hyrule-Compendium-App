@@ -88,10 +88,10 @@ closeButton.addEventListener("click", () => {
 });
 
 // POST-request for notes when clicking "Save"
-saveNote.addEventListener("click", (e) => {
+saveNote.addEventListener("click", async (e) => {
   e.preventDefault();
 
-  fetch("https://dummyjson.com/posts/add", {
+  let response = await fetch("https://dummyjson.com/posts/add", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -99,9 +99,25 @@ saveNote.addEventListener("click", (e) => {
       body: notesText.value,
       userId: 1,
     }),
-  })
-    .then((res) => res.json())
-    .then((data) => console.log(data))
+  });
+  let notesData = await response.json();
+  console.log(notesData);
+
+  //Web storage stuff
+});
+
+// DELETE-request for notes when clicking "Clear"
+clearNote.addEventListener("click", async (e) => {
+  e.preventDefault();
+  notesText.value = "";
+
+  let response = await fetch("https://dummyjson.com/posts/251", {
+    method: "DELETE",
+  });
+  let notesData = await response.json();
+  console.log(notesData);
+
+  //Clear web storage stuff
 });
 
 /* IF homepage field is required(search specific entry)
