@@ -3,6 +3,11 @@
   src: url(fonts/botw-title-font.otf);
 }
 
+@font-face {
+  font-family: FOT-Rodin;
+  src: url(fonts/FOT-Rodin.otf);
+}
+
 * {
   box-sizing: border-box;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -19,6 +24,7 @@ h6 {
   font-family: botw-title-font;
   color: rgb(194, 153, 77);
   text-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+  cursor: default;
 }
 
 h1 {
@@ -28,6 +34,7 @@ p,
 li,
 span {
   color: white;
+  cursor: default;
 }
 
 #app {
@@ -103,7 +110,8 @@ span {
 
 #notesIcon:hover,
 #searchIcon:hover,
-.sortIcon:hover {
+.sortIcon:hover,
+#closeNotes:hover {
   filter: drop-shadow(0px 0px 7px #7cd1ff);
   transition: 0.15s;
 }
@@ -134,7 +142,8 @@ span {
   transition: width 0.3s ease, opacity 0.3s ease;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
 }
 
@@ -188,7 +197,7 @@ input:focus, textarea:focus {
 
 /* Notes CSS */
 .gNotes {
-    background-image: url("/img/sheikahslatebg.jpg");
+  background-image: url("/img/sheikahslatebg.jpg");
   background-size: cover;
   display: none;
   position: fixed;
@@ -207,6 +216,10 @@ input:focus, textarea:focus {
 .notesHeader {
   display: flex;
   justify-content: space-between;
+}
+
+.notesHeader h2 {
+  font-size: 26px;
 }
 
 #gNotesForm {
@@ -230,7 +243,7 @@ input:focus, textarea:focus {
   color: white;
   font-size: 14px;
   padding: 10px;
-
+  letter-spacing: 0.2px;
 }
 
 .notesButton {
@@ -240,4 +253,16 @@ input:focus, textarea:focus {
   padding: 10px 20px;
   margin: 5px;
   z-index: 1000;
+  transition: 1s;
+}
+
+.notesButton:hover {
+  filter: drop-shadow(0px 0px 5px rgb(194, 153, 77));
+  transition: 0.15s;
+}
+
+#closeNotes {
+  max-width: 20px;
+  max-height: 20px;
+  transition: 1s;
 }
