@@ -10,6 +10,7 @@ const closeButton = document.querySelector("#closeNotes");
 const notesText = document.querySelector("#gNotesText");
 const saveNote = document.querySelector("#saveNote");
 const clearNote = document.querySelector("#clearNote");
+const creaturesButton = document.querySelector("#creatures")
 
 let allEntries = [];
 
@@ -103,7 +104,7 @@ saveNote.addEventListener("click", async (e) => {
   let notesData = await response.json();
   console.log(notesData);
 
-  //Web storage stuff
+  // Web storage stuff
 });
 
 // DELETE-request for notes when clicking "Clear"
@@ -117,8 +118,15 @@ clearNote.addEventListener("click", async (e) => {
   let notesData = await response.json();
   console.log(notesData);
 
-  //Clear web storage stuff
+  // Clear web storage stuff
 });
+
+// Sorting: Creatures(Button 1)
+creaturesButton.addEventListener("click", () => {
+  const filtered = allEntries.filter(entry => entry.category === "creatures")
+  render(filtered)
+  // Make into a toggle with ternary expressions
+})
 
 /* IF homepage field is required(search specific entry)
 // Search function

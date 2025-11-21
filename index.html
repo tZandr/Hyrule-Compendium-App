@@ -21,11 +21,11 @@
         <div id="nav">
           <img src="img/notes.png" id="notesIcon" alt="notesIcon" />
           <ol id="sort">
-            <img class="sortIcon" src="img/creatures.png" />
-            <img class="sortIcon" src="img/enemies.png" />
-            <img class="sortIcon" src="img/equipment.png" />
-            <img class="sortIcon" src="img/material.png" />
-            <img class="sortIcon" src="img/treasure.png" />
+            <img id="creatures" class="sortIcon" src="img/creatures.png" />
+            <img id="enemies" class="sortIcon" src="img/enemies.png" />
+            <img id="equipment" class="sortIcon" src="img/equipment.png" />
+            <img id="material" class="sortIcon" src="img/material.png" />
+            <img id="treasure" class="sortIcon" src="img/treasure.png" />
           </ol>
           <img src="img/search.png" id="searchIcon" alt="searchIcon" />
           <input
@@ -55,10 +55,14 @@
       <div id="gNotes" class="gNotes">
         <div class="notesHeader">
           <h2>Notes</h2>
-          <img src="img/close.png" id="closeNotes">
+          <img src="img/close.png" id="closeNotes" />
         </div>
         <form id="gNotesForm" action="">
-          <textarea name="gNotes" id="gNotesText" placeholder="Save your notes here"></textarea>
+          <textarea
+            name="gNotes"
+            id="gNotesText"
+            placeholder="Save your notes here"
+          ></textarea>
           <div>
             <input
               type="submit"
