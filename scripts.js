@@ -1,8 +1,15 @@
-let searchInput = document.querySelector("#search");
-let submit = document.querySelector("#submit");
-let list = document.querySelector("#list");
-const searchIcon = document.querySelector("#searchIcon");
+const searchInput = document.querySelector("#search");
+const submit = document.querySelector("#submit");
+const list = document.querySelector("#list");
+const app = document.querySelector("#app")
+const searchButton = document.querySelector("#searchIcon");
 const inputField = document.querySelector("#inputField");
+const notesButton = document.querySelector("#notesIcon");
+const generalNotes = document.querySelector('#gNotes')
+const closeButton = document.querySelector('#closeNotes')
+const notesText = document.querySelector('#gNotesText')
+const saveNote = document.querySelector('#saveNote')
+const clearNote = document.querySelector('#clearNote')
 
 let allEntries = [];
 
@@ -52,25 +59,40 @@ function render(allEntries) {
 getAll();
 
 // Show input field when clicking the icon
-searchIcon.addEventListener("click", () => {
-  searchIcon.style.display = "none";
+searchButton.addEventListener("click", () => {
+  searchButton.style.display = "none";
   inputField.style.display = "block";
   inputField.focus()
 });
 
+// Live filters every change in the input field
 inputField.addEventListener("input", (e) => {
-  console.log(String(e.value));
   const search = e.target.value.toLowerCase();
   const filtered = allEntries.filter(entry => {
-    //Names
+    //Filtering by name
     const filterByName = entry.name.toLowerCase().includes(search)
-
-    //ID
+    //Filtering by ID
     const filterByID = String(entry.id).padStart(3, "0").includes(search)
     return filterByName || filterByID
     });
   render(filtered);
 });
+
+// General notes(topleft button) pop-up
+notesButton.addEventListener("click", () => {
+  generalNotes.classList.toggle("active");
+});
+    // Close button
+closeButton.addEventListener("click", () => {
+  generalNotes.classList.toggle("active");
+});
+
+saveNote.addEventListener('click', (e) => {
+  e.preventDefault()
+  console.log(notesText.value) //sanityCheck(i need a break(continue here))
+})
+
+
 
 /* IF homepage field is required(search specific entry)
 // Search function

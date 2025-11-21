@@ -89,7 +89,8 @@ span {
   transition: 1s;
 }
 
-#searchIcon, #notesIcon {
+#searchIcon,
+#notesIcon {
   margin: 0px 100px;
   max-width: 35px;
   transition: 1s;
@@ -100,7 +101,9 @@ span {
   align-self: center;
 }
 
-#notesIcon:hover, #searchIcon:hover, .sortIcon:hover {
+#notesIcon:hover,
+#searchIcon:hover,
+.sortIcon:hover {
   filter: drop-shadow(0px 0px 7px #7cd1ff);
   transition: 0.15s;
 }
@@ -131,7 +134,7 @@ span {
   transition: width 0.3s ease, opacity 0.3s ease;
 }
 
-input:focus {
+input:focus, textarea:focus {
   outline: none;
 }
 
@@ -181,4 +184,60 @@ input:focus {
   font-size: 24px;
   font-style: italic;
   border-radius: 4px;
+}
+
+/* Notes CSS */
+.gNotes {
+    background-image: url("/img/sheikahslatebg.jpg");
+  background-size: cover;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  box-shadow: 0 0 5px 1px #6bcbff;
+  width: 700px;
+}
+
+.gNotes.active {
+  display: block; /* visas när aktiv */
+}
+
+.notesHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+#gNotesForm {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+}
+
+#gNotesForm div {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#gNotesText {
+  background: rgba(0, 0, 0, 0.9);
+  border: none;
+  box-shadow: 0 0 2px 1px #6bcbff;
+  margin: 10px;
+  height: 200px;
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+
+}
+
+.notesButton {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  border: 1px solid rgb(194, 153, 77);
+  padding: 10px 20px;
+  margin: 5px;
+  z-index: 1000;
 }

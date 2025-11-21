@@ -19,16 +19,21 @@
       </div>
       <div id="compendium" class="page">
         <div id="nav">
-          <img src="img/notes.png" id="notesIcon" alt="notesIcon">
+          <img src="img/notes.png" id="notesIcon" alt="notesIcon" />
           <ol id="sort">
-            <img class="sortIcon" src="img/creatures.png">
-            <img class="sortIcon" src="img/enemies.png">
-            <img class="sortIcon" src="img/equipment.png">
-            <img class="sortIcon" src="img/material.png">
-            <img class="sortIcon" src="img/treasure.png">
+            <img class="sortIcon" src="img/creatures.png" />
+            <img class="sortIcon" src="img/enemies.png" />
+            <img class="sortIcon" src="img/equipment.png" />
+            <img class="sortIcon" src="img/material.png" />
+            <img class="sortIcon" src="img/treasure.png" />
           </ol>
-          <img src="img/search.png" id="searchIcon" alt="searchIcon">
-          <input id="inputField" type="text" placeholder="Filter entries..." style="display:none;">
+          <img src="img/search.png" id="searchIcon" alt="searchIcon" />
+          <input
+            id="inputField"
+            type="text"
+            placeholder="Filter entries..."
+            style="display: none"
+          />
         </div>
         <ol id="list"></ol>
         <!--
@@ -47,7 +52,31 @@
 
         -->
       </div>
-
+      <div id="gNotes" class="gNotes">
+        <div class="notesHeader">
+          <h2>Notes</h2>
+          <button id="closeNotes">Close</button>
+        </div>
+        <form id="gNotesForm" action="">
+          <textarea name="gNotes" id="gNotesText" placeholder="Save your notes here"></textarea>
+          <div>
+            <input
+              type="submit"
+              value="Save"
+              name="submit"
+              id="saveNote"
+              class="notesButton"
+            />
+            <input
+              type="submit"
+              value="Clear"
+              name="submit"
+              id="clearNote"
+              class="notesButton"
+            />
+          </div>
+        </form>
+      </div>
       <!--
       Idea is to make a website where you can pick your game and search for the ID in the Hyrule Compendium. The response will contain info about the ID and it's whereabouts.
       pages with consist of 24s just like in the game
