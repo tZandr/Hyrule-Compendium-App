@@ -50,7 +50,8 @@ span {
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  overflow-x: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   scroll-snap-type: y mandatory;
 }
 
@@ -71,12 +72,10 @@ span {
 /* Navigation CSS */
 #nav {
   width: 100%;
-  /* Probably change bg */
   background-image: url("/img/sheikahslatebg.jpg");
   background-size: cover;
   background-position: top -25px right 0px;
   box-shadow: 0 1px 3px 1px #6bcbff;
-  /**/
   display: flex;
   justify-content: space-between;
   position: sticky;
