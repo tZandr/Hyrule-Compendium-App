@@ -11,6 +11,10 @@ const notesText = document.querySelector("#gNotesText");
 const saveNote = document.querySelector("#saveNote");
 const clearNote = document.querySelector("#clearNote");
 const creaturesButton = document.querySelector("#creatures");
+const monstersButton = document.querySelector("#monsters");
+const equipmentButton = document.querySelector("#equipment");
+const materialsButton = document.querySelector("#material");
+const treasureButton = document.querySelector("#treasure");
 
 let allEntries = [];
 
@@ -106,8 +110,6 @@ saveNote.addEventListener("click", async (e) => {
     }),
   });
   let notesData = await response.json();
-
-  // Web storage
   localStorage.setItem("notesData", JSON.stringify(notesData));
 });
 
@@ -115,7 +117,7 @@ saveNote.addEventListener("click", async (e) => {
 clearNote.addEventListener("click", async (e) => {
   e.preventDefault();
   notesText.value = "";
-  localStorage.removeItem("notesData")
+  localStorage.removeItem("notesData");
 
   let response = await fetch("https://dummyjson.com/posts/251", {
     method: "DELETE",
@@ -124,17 +126,58 @@ clearNote.addEventListener("click", async (e) => {
   console.log(notesData);
 });
 
-// Sorting: Creatures(Button 1)
-let isFiltered = false;
+// Sorting buttons
+let activeFilter = null;
+
 creaturesButton.addEventListener("click", () => {
-  render(
-    isFiltered
-      ? allEntries
-      : allEntries.filter((e) => e.category === "creatures")
-  );
-  isFiltered = !isFiltered;
+  if (activeFilter === "creatures") {
+    render(allEntries);
+    activeFilter = null;
+  } else {
+    render(allEntries.filter((e) => e.category === "creatures"));
+    activeFilter = "creatures";
+  }
 });
 
+monstersButton.addEventListener("click", () => {
+  if (activeFilter === "monsters") {
+    render(allEntries);
+    activeFilter = null;
+  } else {
+    render(allEntries.filter((e) => e.category === "monsters"));
+    activeFilter = "monsters";
+  }
+});
+
+equipmentButton.addEventListener("click", () => {
+  if (activeFilter === "equipment") {
+    render(allEntries);
+    activeFilter = null;
+  } else {
+    render(allEntries.filter((e) => e.category === "equipment"));
+    activeFilter = "equipment";
+  }
+});
+
+materialsButton.addEventListener("click", () => {
+  if (activeFilter === "materials") {
+    render(allEntries);
+    activeFilter = null;
+  } else {
+    render(allEntries.filter((e) => e.category === "materials"));
+    activeFilter = "materials";
+  }
+});
+
+treasureButton.addEventListener("click", () => {
+  if (activeFilter === "treasure") {
+    render(allEntries);
+    activeFilter = null;
+  } else {
+    render(allEntries.filter((e) => e.category === "treasure"));
+    activeFilter = "treasure";
+  }
+});
 /* IF homepage field is required(search specific entry)
 // Search function
 async function getItem() {
