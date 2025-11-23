@@ -10,7 +10,7 @@ const closeButton = document.querySelector("#closeNotes");
 const notesText = document.querySelector("#gNotesText");
 const saveNote = document.querySelector("#saveNote");
 const clearNote = document.querySelector("#clearNote");
-const creaturesButton = document.querySelector("#creatures")
+const creaturesButton = document.querySelector("#creatures");
 
 let allEntries = [];
 
@@ -122,11 +122,15 @@ clearNote.addEventListener("click", async (e) => {
 });
 
 // Sorting: Creatures(Button 1)
+let isFiltered = false;
 creaturesButton.addEventListener("click", () => {
-  const filtered = allEntries.filter(entry => entry.category === "creatures")
-  render(filtered)
-  // Make into a toggle with ternary expressions
-})
+  render(
+    isFiltered
+      ? allEntries
+      : allEntries.filter((e) => e.category === "creatures")
+  );
+  isFiltered = !isFiltered;
+});
 
 /* IF homepage field is required(search specific entry)
 // Search function
