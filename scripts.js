@@ -81,8 +81,12 @@ inputField.addEventListener("input", (e) => {
 
 // General notes(topleft button) pop-up
 notesButton.addEventListener("click", () => {
+  let savedNotes = JSON.parse(localStorage.getItem("notesData"));
   generalNotes.classList.toggle("active");
+  notesText.value = savedNotes.body;
+  console.log("Saved and loaded data: ", savedNotes);
 });
+
 // Close button
 closeButton.addEventListener("click", () => {
   generalNotes.classList.toggle("active");
@@ -102,23 +106,22 @@ saveNote.addEventListener("click", async (e) => {
     }),
   });
   let notesData = await response.json();
-  console.log(notesData);
 
-  // Web storage stuff
+  // Web storage
+  localStorage.setItem("notesData", JSON.stringify(notesData));
 });
 
 // DELETE-request for notes when clicking "Clear"
 clearNote.addEventListener("click", async (e) => {
   e.preventDefault();
   notesText.value = "";
+  localStorage.removeItem("notesData")
 
   let response = await fetch("https://dummyjson.com/posts/251", {
     method: "DELETE",
   });
   let notesData = await response.json();
   console.log(notesData);
-
-  // Clear web storage stuff
 });
 
 // Sorting: Creatures(Button 1)
