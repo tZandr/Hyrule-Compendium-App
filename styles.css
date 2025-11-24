@@ -78,7 +78,7 @@ span {
   box-shadow: 0 1px 3px 1px #6bcbff;
   display: flex;
   justify-content: space-between;
-  position: sticky;
+  position: absolute;
   top: 0;
   z-index: 1000;
   padding: 30px;
