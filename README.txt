@@ -1,8 +1,7 @@
 Final assignment of the Native Javascript course.
+I will continue this as a for fun project!
 
-Going a little overboard as i'm trying to replicate the Hyrule Compendium from The Legend of Zelda: Breath of The Wild.
-
-The (swedish)instructions are as follows:
+The assignment instructions(swedish):
 
 Mål:
 
