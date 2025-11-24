@@ -1,5 +1,3 @@
-const searchInput = document.querySelector("#search");
-const submit = document.querySelector("#submit");
 const list = document.querySelector("#list");
 const app = document.querySelector("#app");
 const searchButton = document.querySelector("#searchIcon");
@@ -18,7 +16,7 @@ const treasureButton = document.querySelector("#treasure");
 
 let allEntries = [];
 
-// GET all entries
+// GET all entries(COMPENDIUM PAGE)
 async function getAll() {
   try {
     let response = await fetch(
@@ -111,6 +109,7 @@ saveNote.addEventListener("click", async (e) => {
   });
   let notesData = await response.json();
   localStorage.setItem("notesData", JSON.stringify(notesData));
+  console.log("Saved: ", notesData);
 });
 
 // DELETE-request for notes when clicking "Clear"
@@ -178,25 +177,3 @@ treasureButton.addEventListener("click", () => {
     activeFilter = "treasure";
   }
 });
-/* IF homepage field is required(search specific entry)
-// Search function
-async function getItem() {
-  let search = searchInput.value.toLowerCase();
-
-  try {
-    let response = await fetch(
-      "https://botw-compendium.herokuapp.com/api/v3/compendium/entry/" + search
-    );
-    let data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error("Error: ", error);
-  }
-}
-
-
-submit.addEventListener("click", (e) => {
-  e.preventDefault();
-  getItem();
-});
-*/

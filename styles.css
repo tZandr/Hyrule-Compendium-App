@@ -32,11 +32,6 @@ h1 {
   font-size: 60px;
 }
 
-h1:hover {
-  filter: drop-shadow(0px 0px 5px rgb(194, 153, 77));
-  transition: 0.15s;
-}
-
 p,
 li,
 span {
@@ -61,12 +56,62 @@ span {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-top: 100px;
 }
 
 #home {
+  display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+}
+
+#bottom-nav {
+  width: 10%;
+  background-image: url("/img/mapbg.jpg");
+  background-size: cover;
+  background-position: top -25px right 0px;
+  box-shadow: 0 -1px 3px 1px #6bcbff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+}
+
+.navLink {
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgb(194, 153, 77);
+  width: 200px;
+  padding: 10px;
+  transition: 0.3s;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.navLink:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transition: 1s;
+  border: 1px solid rgb(194, 153, 77);
+}
+
+.button-bottom-left {
+  text-decoration: none;
+}
+
+.button-bottom-left h1 {
+  font-size: 24px;
+  color: #7cd1ff;
+}
+
+.button-bottom-left h1:hover {
+  filter: drop-shadow(0px 0px 5px #6bcbff);
+  transition: 0.15s;
 }
 
 /* Navigation CSS */
@@ -254,4 +299,221 @@ textarea:focus {
   max-width: 20px;
   max-height: 20px;
   transition: 1s;
+}
+
+@media (max-width: 800px) {
+  #nav {
+    width: 100%;
+    background-image: url("/img/sheikahslatebg.jpg");
+    background-size: cover;
+    background-position: top -25px right 0px;
+    box-shadow: 0 1px 3px 1px #6bcbff;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    padding: 20px;
+  }
+
+  #sort {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  }
+
+  #list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 40px;
+  }
+
+  .entry {
+    box-shadow: 0 0 5px 1px #6bcbff;
+    transition: 2s;
+    max-width: 150px;
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+  }
+
+  .entry:hover {
+    box-shadow: 0 0 15px 5px #7cd1ff;
+    transition: 0.15s;
+  }
+
+  .entry img {
+    display: block;
+    max-width: 150px;
+  }
+
+  .entry .overlay {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    color: rgb(212, 251, 255);
+    padding: 2px 6px;
+    font-size: 20px;
+    font-style: italic;
+    border-radius: 4px;
+  }
+
+  #searchIcon,
+  #notesIcon {
+    margin: 0px 30px;
+    max-width: 35px;
+    transition: 1s;
+  }
+
+  #bottom-nav {
+    width: 15%;
+    background-image: url("/img/mapbg.jpg");
+    background-size: cover;
+    background-position: top -25px right 0px;
+    box-shadow: 0 -1px 3px 1px #6bcbff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+  }
+
+  #inputField {
+    margin: 0 35px 0 0;
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgb(194, 153, 77);
+    width: 150px;
+    opacity: 1;
+    padding: 5px;
+    transition: width 0.3s ease, opacity 0.3s ease;
+  }
+
+  .gNotes {
+    background-image: url("/img/sheikahslatebg.jpg");
+    background-size: cover;
+    background-position: top 0px right -75px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    box-shadow: 0 0 5px 1px #6bcbff;
+    width: 500px;
+  }
+}
+
+@media (max-width: 500px) {
+  #nav {
+    width: 100%;
+    background-image: url("/img/sheikahslatebg.jpg");
+    background-size: cover;
+    background-position: top -25px right 0px;
+    box-shadow: 0 1px 3px 1px #6bcbff;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    padding-top: 20px;
+  }
+
+  #sort {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  }
+
+  #list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px;
+  }
+
+  .entry {
+    box-shadow: 0 0 5px 1px #6bcbff;
+    transition: 2s;
+    max-width: 120px;
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .entry:hover {
+    box-shadow: 0 0 15px 5px #7cd1ff;
+    transition: 0.15s;
+  }
+
+  .entry img {
+    display: block;
+    max-width: 120px;
+  }
+
+  #searchIcon,
+  #notesIcon {
+    margin: 0px 30px;
+    max-width: 35px;
+    transition: 1s;
+  }
+
+  #bottom-nav {
+    width: 20%;
+    background-image: url("/img/mapbg.jpg");
+    background-size: cover;
+    background-position: top -25px right 0px;
+    box-shadow: 0 -1px 3px 1px #6bcbff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+  }
+
+  #inputField {
+    margin: 0 35px 0 15px;
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgb(194, 153, 77);
+    width: 100px;
+    opacity: 1;
+    padding: 5px;
+    transition: width 0.3s ease, opacity 0.3s ease;
+  }
+
+  .gNotes {
+    background-image: url("/img/sheikahslatebg.jpg");
+    background-size: cover;
+    background-position: top 0px right -180px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    box-shadow: 0 0 5px 1px #6bcbff;
+    width: 300px;
+  }
 }
