@@ -183,7 +183,7 @@ treasureButton.addEventListener("click", () => {
   }
 });
 
-/*
+
 function entryDetails(entry) {
   console.log(`Entry ${entry.id} clicked`)
   let detailsBox = document.querySelector('#details')
@@ -205,4 +205,3 @@ function entryDetails(entry) {
 
   detailsBox.style.display = 'flex'
 }
-*/
