@@ -37,8 +37,9 @@ async function getAll() {
 }
 
 function render(allEntries) {
-  // Create container for each entry
   list.innerHTML = "";
+
+  // Create container for each entry
   allEntries.forEach((entry) => {
     let container = document.createElement("div");
     container.classList.add("entry");
@@ -56,6 +57,10 @@ function render(allEntries) {
     container.appendChild(img);
     container.appendChild(idOverlay);
     list.appendChild(container);
+
+    container.addEventListener("click", () => {
+      entryDetails(entry);
+    });
   });
 }
 
@@ -177,3 +182,27 @@ treasureButton.addEventListener("click", () => {
     activeFilter = "treasure";
   }
 });
+
+/*
+function entryDetails(entry) {
+  console.log(`Entry ${entry.id} clicked`)
+  let detailsBox = document.querySelector('#details')
+  detailsBox.innerHTML =
+  `<div>
+  <h1>${entry.name}</h1>
+  <p>${entry.description}</p>
+  </div>
+  <div>
+  <img src="${entry.image}">
+  <p>Drops: ${entry.drops}</p>
+  </div>`
+
+  // Show "None" instead of null, undefined or '' (not working yet)
+  let entryDrops = entry.drops
+  if (entry.drops === "null"){
+    entryDrops.textContent = 'None'
+  }
+
+  detailsBox.style.display = 'flex'
+}
+*/
