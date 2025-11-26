@@ -183,25 +183,29 @@ treasureButton.addEventListener("click", () => {
   }
 });
 
-
 function entryDetails(entry) {
-  console.log(`Entry ${entry.id} clicked`)
-  let detailsBox = document.querySelector('#details')
-  detailsBox.innerHTML =
-  `<div>
+  console.log(`Entry ${entry.id} clicked`);
+  let detailsBox = document.querySelector("#details");
+  detailsBox.innerHTML = `
+  <div id="infoLeft">
   <h1>${entry.name}</h1>
   <p>${entry.description}</p>
   </div>
-  <div>
+  <div id="infoRight">
   <img src="${entry.image}">
-  <p>Drops: ${entry.drops}</p>
-  </div>`
+  <p id="drops">Drops: ${entry.drops}</p>
+  </div>
+  `;
 
-  // Show "None" instead of null, undefined or '' (not working yet)
-  let entryDrops = entry.drops
-  if (entry.drops === "null"){
-    entryDrops.textContent = 'None'
+  let detailsLeft = document.querySelector("#infoLeft");
+  let detailsRight = document.querySelector("#infoRight");
+
+  detailsLeft.style.width = "300px"; /*works lol*/
+
+  let dropsElement = detailsRight.querySelector("#drops");
+  if (!entry.drops || entry.drops === "null" || entry.drops.length === 0) {
+    dropsElement.textContent = "Drops: None";
   }
 
-  detailsBox.style.display = 'flex'
+  detailsBox.style.display = "flex";
 }

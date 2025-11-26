@@ -521,6 +521,11 @@ textarea:focus {
     box-shadow: 0 0 5px 1px #6bcbff;
     width: 300px;
   }
+
+  .infoLeft {
+    color: red;
+  }
+
   #title {
     text-align: center;
     margin-bottom: 10px;
