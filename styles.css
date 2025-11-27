@@ -301,12 +301,13 @@ textarea:focus {
   transition: 1s;
 }
 
-#details { /* Continue here */
+#details {
+  /* Continue here */
   justify-content: space-between;
 }
 
 #infoRight {
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 

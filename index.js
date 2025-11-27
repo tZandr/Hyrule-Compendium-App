@@ -188,7 +188,7 @@ function entryDetails(entry) {
   let detailsBox = document.querySelector("#details");
   detailsBox.innerHTML = `
   <div id="infoLeft">
-  <h1>${entry.name}</h1>
+  <h2>${entry.name}</h2>
   <p>${entry.description}</p>
   </div>
   <div id="infoRight">
@@ -200,7 +200,8 @@ function entryDetails(entry) {
   let detailsLeft = document.querySelector("#infoLeft");
   let detailsRight = document.querySelector("#infoRight");
 
-  detailsLeft.style.width = "300px"; /*works lol*/
+  detailsLeft.style.width = "300px";
+  detailsRight.style.width = "300px";
 
   let dropsElement = detailsRight.querySelector("#drops");
   if (!entry.drops || entry.drops === "null" || entry.drops.length === 0) {
