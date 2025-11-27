@@ -1,10 +1,14 @@
-Final assignment of the Native Javascript course at ITHS. 
-I got VG(Väl godkänt), and I will continue this project for fun!
+Final assignment of the Native Javascript course at IT-Högskolan. I got VG(Väl godkänt), and I will continue this project for fun!
+
+This app aims to make it easy to search for a hyrule compendium entry. You can search by either ID or name.
+Even though I got graded already, I will continue the project as I have more functions in mind.
+Among those functions I want the entries to be clickable and to show the complete info given from the API, as without it it's more like a photo album.
+The complete info includes if it's dlc, location, drops... etc.
+
 
 The assignment instructions(swedish):
 
 Mål:
-
 Uppgiften går ut på att använda JavaScript, HTML och CSS för att skapa en dynamisk RESPONSIV webbplats som hämtar och visar information från en webbtjänst via API-anrop.
 För VG krävs ytterligare funktionalitet och datavisualisering.
 
