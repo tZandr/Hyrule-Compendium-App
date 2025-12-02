@@ -311,6 +311,12 @@ textarea:focus {
   flex-direction: column;
 }
 
+#infoLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 @media (max-width: 800px) {
   #nav {
     background-position: top -10px right 0px;

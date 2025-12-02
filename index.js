@@ -186,14 +186,18 @@ treasureButton.addEventListener("click", () => {
 function entryDetails(entry) {
   console.log(`Entry ${entry.id} clicked`);
   let detailsBox = document.querySelector("#details");
+
   detailsBox.innerHTML = `
   <div id="infoLeft">
-  <h2>${entry.name}</h2>
-  <p>${entry.description}</p>
+    <h2>${entry.name}</h2>
+    <p>${entry.description}</p>
+    <div>
+      <p id="drops">Drops:<br> ${entry.drops}</p>
+      <p id="locations">Locations:<br> ${entry.common_locations}</p>
+    </div>
   </div>
   <div id="infoRight">
-  <img src="${entry.image}">
-  <p id="drops">Drops: ${entry.drops}</p>
+    <img src="${entry.image}">
   </div>
   `;
 
@@ -203,9 +207,9 @@ function entryDetails(entry) {
   detailsLeft.style.width = "300px";
   detailsRight.style.width = "300px";
 
-  let dropsElement = detailsRight.querySelector("#drops");
+  let dropsElement = detailsLeft.querySelector("#drops");
   if (!entry.drops || entry.drops === "null" || entry.drops.length === 0) {
-    dropsElement.textContent = "Drops: None";
+    dropsElement.innerHTML = "Drops: <br> None";
   }
 
   detailsBox.style.display = "flex";
