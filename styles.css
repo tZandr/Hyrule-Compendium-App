@@ -160,7 +160,8 @@ span {
 #notesIcon:hover,
 #searchIcon:hover,
 .sortIcon:hover,
-#closeNotes:hover {
+#closeNotes:hover,
+#closeDetails:hover {
   filter: drop-shadow(0px 0px 7px #7cd1ff);
   transition: 0.15s;
 }
@@ -295,7 +296,7 @@ textarea:focus {
   transition: 0.15s;
 }
 
-#closeNotes {
+#closeNotes, #closeDetails {
   max-width: 20px;
   max-height: 20px;
   transition: 1s;
@@ -304,6 +305,7 @@ textarea:focus {
 #details {
   /* Continue here */
   justify-content: space-between;
+
 }
 
 #infoRight {

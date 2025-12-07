@@ -13,6 +13,7 @@ const monstersButton = document.querySelector("#monsters");
 const equipmentButton = document.querySelector("#equipment");
 const materialsButton = document.querySelector("#material");
 const treasureButton = document.querySelector("#treasure");
+const detailsBox = document.querySelector("#details");
 
 let allEntries = [];
 
@@ -185,7 +186,6 @@ treasureButton.addEventListener("click", () => {
 
 function entryDetails(entry) {
   console.log(`Entry ${entry.id} clicked`);
-  let detailsBox = document.querySelector("#details");
 
   detailsBox.innerHTML = `
   <div id="infoLeft">
@@ -197,6 +197,7 @@ function entryDetails(entry) {
     </div>
   </div>
   <div id="infoRight">
+    <img src="img/close.png" id="closeDetails" />
     <img src="${entry.image}">
   </div>
   `;
@@ -213,4 +214,10 @@ function entryDetails(entry) {
   }
 
   detailsBox.style.display = "flex";
+
+  const closeDetails = document.querySelector("#closeDetails");
+  closeDetails.addEventListener("click", () => {
+    detailsBox.style.display = "none";
+    console.log("Closing");
+  });
 }
