@@ -296,21 +296,29 @@ textarea:focus {
   transition: 0.15s;
 }
 
-#closeNotes, #closeDetails {
+#closeNotes,
+#closeDetails {
   max-width: 20px;
   max-height: 20px;
   transition: 1s;
+  margin-bottom: 10px;
 }
 
 #details {
   /* Continue here */
   justify-content: space-between;
-
 }
 
 #infoRight {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+}
+
+#detailsImg {
+  margin-top: 10px;
+  max-width: 250px;
+  box-shadow: 0 0 5px 1px #6bcbff;
 }
 
 #infoLeft {

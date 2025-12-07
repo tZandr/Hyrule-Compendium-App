@@ -198,7 +198,7 @@ function entryDetails(entry) {
   </div>
   <div id="infoRight">
     <img src="img/close.png" id="closeDetails" />
-    <img src="${entry.image}">
+    <img src="${entry.image}" id="detailsImg">
   </div>
   `;
 
