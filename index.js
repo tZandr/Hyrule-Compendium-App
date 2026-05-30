@@ -20,18 +20,12 @@ let allEntries = [];
 // GET all entries(COMPENDIUM PAGE)
 async function getAll() {
   try {
-    let response = await fetch(
-      "https://botw-compendium.herokuapp.com/api/v3/compendium/all"
-    );
+    let response = await fetch("data/compendium.json");
     let data = await response.json();
-    console.log(data);
 
-    // Render and sort the list
     allEntries = [...data.data].sort((a, b) => a.id - b.id);
 
     render(allEntries);
-
-    // Gets specific entry: console.log(data.data[1])
   } catch (error) {
     console.error("Error: ", error);
   }
@@ -91,8 +85,7 @@ inputField.addEventListener("input", (e) => {
 notesButton.addEventListener("click", () => {
   let savedNotes = JSON.parse(localStorage.getItem("notesData"));
   generalNotes.classList.toggle("active");
-  notesText.value = savedNotes.body;
-  console.log("Saved and loaded data: ", savedNotes);
+  notesText.value = savedNotes ? savedNotes.body : "";
 });
 
 // Close button
